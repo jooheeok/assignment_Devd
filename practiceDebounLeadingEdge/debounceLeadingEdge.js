@@ -22,6 +22,25 @@ const debounce = (func, wait, leading = false) => {
     }
   };
 };
+// 예제로 사용할 함수 정의
+const sampleFunction = (event) => {
+  console.log(`Function called with event:`, event);
+};
+
+// debounce 함수로 감싸기 (leading을 true로 설정)
+const debouncedFunction = debounce(sampleFunction, 500, true);
+
+// 예제 이벤트 발생 (여러 번 호출되어도 마지막 호출 이후 500ms 동안 다시 호출되지 않음)
+debouncedFunction('Event 1');
+debouncedFunction('Event 2');
+debouncedFunction('Event 3');
+
+// 500ms 후에 다시 호출 가능
+setTimeout(() => {
+  debouncedFunction('Event 4');
+}, 1000);
+
+//! ----------------------------
 /*
 실행 상태 
 - callNow 가 true로 할당 
