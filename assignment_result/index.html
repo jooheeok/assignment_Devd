@@ -8,7 +8,6 @@
   <body>
     <h2>디바운스 적용하기</h2>
     <form id="inputForm">
-      <!-- <input type="text" id="input" name="input" value="Hong" placeholder="이름을 입력해주세요." /> -->
       <input type="text" id="input" name="input" placeholder="이름을 입력해주세요." />
       <button type="submit" id="submitBtn">전송</button>
       <button type="submit" id="cancelBtn">취소</button><br />
@@ -21,14 +20,12 @@
         $input.value = null;
       };
       const debouncedFn = debounce(handleTyping, 800, false);
-      // const debouncedFn = debounce(handleTyping);
 
       const $input = document.querySelector('#input');
       const $submitBtn = document.querySelector('#submitBtn');
       const $result = document.querySelector('#result');
       const $cancelBtn = document.querySelector('#cancelBtn');
 
-      // ✅ cancel로 변경함
       $cancelBtn.addEventListener('click', (e) => {
         e.preventDefault();
         debouncedFn.cancel();

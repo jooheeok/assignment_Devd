@@ -3,7 +3,7 @@ const $countNumber = document.querySelector('#countNumber');
 let count = 0;
 
 const throttle = (func) => {
-  let timer; // 클로저
+  let timer;
   return () => {
     if (!timer) {
       timer = setTimeout(() => {

@@ -6,14 +6,11 @@ const debounceFirst = (func, wait = 500, immediate = false) => {
       timer = null;
       return;
     }
-    // ✅ 2. 즉시 실행하는 옵션(immediate)을 지원합니다.  -> debounced를 무력화한다는 뜻이겠지? 지연 없이 즉시실행?
     if (immediate) return func(args);
-    // ✅ 1. 대기 시간(wait)이 경과한 후에만 원래 함수(func)를 실행합니다.
     timer = setTimeout(() => {
       func(args);
     }, wait);
 
-    // ✅ 3. debounce 함수에 의해 생성된 타이머를 취소하는 'cancel 메소드'를 제공합니다.
     debounced.cancel = () => {
       clearTimeout(timer);
     };
@@ -30,16 +27,13 @@ function debounceSecond(func, wait = 500, immediate = false) {
       return;
     }
 
-    // ✅ 2. 즉시 실행하는 옵션(immediate)을 지원합니다.  -> debounced를 무력화한다는 뜻이겠지? 지연 없이 즉시실행?
     if (immediate) return func(args);
 
-    // ✅ 1. 대기 시간(wait)이 경과한 후에만 원래 함수(func)를 실행합니다.
     timer = setTimeout(() => {
       func(args);
     }, wait);
   };
 
-  // ✅ 3. debounce 함수에 의해 생성된 타이머를 취소하는 'cancel 메소드'를 제공합니다.
   cancel = () => {
     clearTimeout(timer);
     timer = null;
@@ -72,7 +66,6 @@ function debouncePromise(func, wait = 500, immediate = false) {
       }, wait);
     });
 
-  // ✅ debounce 함수에 의해 생성된 타이머를 취소하는 'cancel 메소드'를 제공합니다.
   const cancel = () => {
     clearTimeout(timer);
     timer = null;
