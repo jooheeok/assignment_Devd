@@ -52,6 +52,8 @@
 
 ### | 코드 설명
 
+ㄴ
+
 ```typescript
 function debounce<T extends unknown[]>(func: (...args: T) => void, wait = 500, immediate = false) {
   let timer: ReturnType<typeof setTimeout> | null;
@@ -95,6 +97,47 @@ resolve(func(...args))를 호출한 후에 함수를 즉시 종료하고 이후�
 <br/>
 
 ### | test 방법
+
+<!-- debounce 기능을 테스트하려면 다음 단계를 따르세요: -->
+
+#### | 디바운스 기능 확인
+
+- 입력 필드에 텍스트를 입력합니다.
+
+- handleTyping 함수가 즉시 실행되지 않습니다.
+
+- 지정된 debounce 시간(wait)을 기다립니다. (기본값은 500ms 입니다.)
+
+- handleTyping 함수가 실행을 확인할 수 있습니다.
+
+#### | 즉시 실행 기능 확인
+
+- immediate를 true로 주면 즉시 실행이 가능합니다. (기본값은 false 입니다.)
+  <br/>
+
+#### | cancel 기능 확인
+
+- 입력한 debounce 시간이 경과하기 전에 "취소" 버튼을 클릭합니다.
+
+- handleTyping 함수가 취소되어 아무 동작도 발생하지 않습니다.
+
+```javascript
+// 사용자 입력을 처리를 확인하기 위한 예제 코드
+const handleTyping = (userInput) => {
+  $result.insertAdjacentHTML('beforeend', userInput);
+  $input.value = null;
+};
+
+// 아래 코드에 (콜백함수, 지연시간(ms), 즉시실행여부(true:즉시실행))를 입력하면 확인이 가능합니다.
+const debouncedFn = debounce(handleTyping, 800, false);
+
+// debounce된 함수를 이벤트 리스너에 연결해 확인이 가능합니다.
+const $submitBtn = document.querySelector('#submitBtn');
+$submitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  debouncedFn.debounced($input.value);
+});
+```
 
 <br/>
 <hr/>
