@@ -5,6 +5,7 @@ function debounce<T extends unknown[]>(func: (...args: T) => void, wait = 500, i
     new Promise((resolve, reject) => {
       if (immediate) {
         resolve(func(...args));
+        return; // resolve 실행한 이후에 계속되는 것을 방지하고자 추가 - Promise실행 이후 즉시 종료!
       }
 
       if (timer) {

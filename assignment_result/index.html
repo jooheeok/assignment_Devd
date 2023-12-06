@@ -8,32 +8,33 @@
   <body>
     <h2>디바운스 적용하기</h2>
     <form id="inputForm">
-      <input type="text" id="input" name="input" value="Hong" placeholder="이름을 입력해주세요." />
-      <button type="submit" id="submitBtn">전송</button><br />
+      <!-- <input type="text" id="input" name="input" value="Hong" placeholder="이름을 입력해주세요." /> -->
+      <input type="text" id="input" name="input" placeholder="이름을 입력해주세요." />
+      <button type="submit" id="submitBtn">전송</button>
+      <button type="submit" id="cancelBtn">취소</button><br />
       <p id="result"></p>
     </form>
     <script src="./debounce.js"></script>
     <script>
       const handleTyping = (userInput) => {
         $result.insertAdjacentHTML('beforeend', userInput);
-        $input.value = '';
+        $input.value = null;
       };
-
-      // const debouncedFn = debouncePromise(handleTyping, 2000, false);
-      const debouncedFn = debounce(handleTyping, 2000, false);
+      const debouncedFn = debounce(handleTyping, 800, false);
+      // const debouncedFn = debounce(handleTyping);
 
       const $input = document.querySelector('#input');
       const $submitBtn = document.querySelector('#submitBtn');
       const $result = document.querySelector('#result');
+      const $cancelBtn = document.querySelector('#cancelBtn');
 
-      // "esc" key down -> ✅ cancel 메소드가 실행
-      $input.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          debouncedFn.cancel();
-        }
+      // ✅ cancel로 변경함
+      $cancelBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        debouncedFn.cancel();
+        $input.value = null;
       });
 
-      // 전송 버튼을 직접 클릭한 경우의 제어
       $submitBtn.addEventListener('click', (e) => {
         e.preventDefault();
         debouncedFn.debounced($input.value);
