@@ -30,17 +30,17 @@
 ※ 제출 과제물이 담긴 폴더입니다.<br/>
 
 | debounce_JSversion.js<br/>
-&nbsp; &nbsp;최종 결과물 이전에 중간 코드입니다.<br/>
+&nbsp; &nbsp;[최종 결과물 이전에 중간 코드입니다. 🔗 ](https://github.com/jooheeok/assignment_Devd/blob/main/assignment_result/debounce_JSversion.js)<br/>
 &nbsp; &nbsp;typescript가 아직 부족해서 js로 코드를 작성한 이후에 ts로 변경해주었습니다.
 
 | debounce.ts<br/>
-&nbsp; &nbsp;최종 결과물인 코드입니다.
+&nbsp; &nbsp;[최종 결과물인 ts 코드입니다. 🔗 ](https://github.com/jooheeok/assignment_Devd/blob/main/assignment_result/debounce.ts)
 
 | debounce.js<br/>
-&nbsp; &nbsp;debounce.ts를 컴파일한 js파일입니다.
+&nbsp; &nbsp;[debounce.ts를 컴파일한 js파일입니다. 🔗 ](https://github.com/jooheeok/assignment_Devd/blob/main/assignment_result/debounce.js)
 
 | index.html<br/>
-&nbsp; &nbsp;debounce 함수를 구동해보기 위해 만든 html파일입니다.
+&nbsp; &nbsp;[debounce 함수를 구동해보기 위해 만든 html파일입니다. 🔗](https://github.com/jooheeok/assignment_Devd/blob/main/assignment_result/index.html)
 
 #### 📁 practice_before_assignment
 
@@ -87,15 +87,15 @@ reject를 사용하는 이유는 디바운스된 함수 내부에서 발생한 �
 
 #### return 문
 
-resolve(func(...args))를 호출한 후에 함수를 즉시 종료하고 이후의 코드를 실행하지 않도록 하기 위해 return을 사용해서 코드의 흐름을 제어했습니다. immediate가 참일 때 프로미스를 즉시 이행시킨 후, 더 이상의 타이머나 디바운스 동작이 필요하지 않기 때문에 return을 통해 문을 종료시켜줬습니다.
+resolve(func(...args))를 호출한 후에 함수를 즉시 종료하고 이후의 코드를 실행하지 않도록 하기 위해 return을 사용해서 코드의 흐름을 제어했습니다. immediate가 참일 때 프로미스를 즉시 이행시킨 후, 더 이상의 타이머나 디바운스 동작이 필요하지 않기 때문에 return을 통해 함수의 실행을 종료시켜줬습니다.
 
 <br/>
 
 <hr/>
 <br/>
 
-<!-- ### | test 방법
+### | test 방법
 
 <br/>
 <hr/>
-<br/> -->
+<br/>
